@@ -1,6 +1,8 @@
-import { useState } from "react";
-
+import {  useState } from "react";
+import { colorcontext } from "../context";
+import Children from "./children";
  const ParentComponent=(props)=>{
+    console.log(colorcontext);
     const [color,setColor]=useState('#0000000');
 
     return(
@@ -13,8 +15,13 @@ import { useState } from "react";
         } } 
         value={color}
         />
-        
+        <colorcontext.Provider value={color}>
+      <Children />       
+ 
+
+</colorcontext.Provider>
         </>
+        
     )
 }
 
